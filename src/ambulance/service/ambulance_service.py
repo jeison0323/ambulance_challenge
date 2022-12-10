@@ -14,3 +14,7 @@ def add_ambulance(request):
     }
     ambulances.append(ambulance)
     return jsonify({"message": "Ambulance successfully inserted"})
+
+def list_ambulances():
+    active_ambulances = filter(lambda ambulance: ambulance["status"] == "ACTIVA", ambulances)
+    return list(active_ambulances)
