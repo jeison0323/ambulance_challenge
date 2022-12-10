@@ -1,11 +1,12 @@
 """
 Define routes for ambulance APIs
 """
-from flask import Blueprint, request
+from flask import Blueprint, request, abort
 from flask_expects_json import expects_json
 
 from ambulance.schema.ambulance_schema import ambulance_schema
-from ambulance.service.ambulance_service import add_ambulance, list_ambulances
+from ambulance.schema.position_schema import position_schema
+from ambulance.service.ambulance_service import add_ambulance, list_ambulances, get_near_ambulances
 
 
 ambulance = Blueprint('ambulance', __name__, url_prefix='/ambulance')
@@ -18,3 +19,8 @@ def create_ambulance():
 @ambulance.route('/get', methods=['GET'])
 def get_ambulances():
     return list_ambulances()
+
+@ambulance.route('/near', methods=['GET'])
+@expects_json(position_schema)
+def get_nearby_ambulances():
+    return get_near_ambulances(request.json)
