@@ -1,8 +1,14 @@
-# Readme
-## Reto ambulancias
+# Reto ambulancias
+
+A continuación se describen las instrucciones y la estructura definida para la ejecución de la API.
+
+## Postman
+Descargar [Postman](https://www.postman.com/downloads/). 
+
+## Importar collection 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d5f2d22ffede776c3167?action=collection%2Fimport) 
 
 
-A continuación se describe la estructura definida para la ejecución de la API.
 
 ## Crear ambulancia [POST]:
 
@@ -83,13 +89,3 @@ py main.py
 ```
 
 El proyecto ejecutará en localhost
-
-## Postman
-Descargar [Postman](https://www.postman.com/downloads/)  para la ejecución de la API. 
-
-## Importar collection 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d5f2d22ffede776c3167?action=collection%2Fimport) 
-
-
-
-
