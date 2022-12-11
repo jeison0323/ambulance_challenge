@@ -13,7 +13,7 @@ ambulances = [
         "latitude": 6.2443382,
         "license_plate": "LNJ456",
         "longitude": -75.573553,
-        "status": "ACTIVA",
+        "is_active": True,
         "zone": "Medellin"
     },
     {
@@ -21,7 +21,7 @@ ambulances = [
         "latitude": 4.999023676713861,
         "license_plate": "ABC456",
         "longitude": -75.53148317974049,
-        "status": "ACTIVA",
+        "is_active": True,
         "zone": "Manizales"
     },
     {
@@ -29,7 +29,7 @@ ambulances = [
         "latitude": 4.3108781369148375,
         "license_plate": "JEI323",
         "longitude": -75.26504098477379,
-        "status": "ACTIVA",
+        "is_active": True,
         "zone": "Ibague"
     },
     {
@@ -37,7 +37,7 @@ ambulances = [
         "latitude": 4.587221409269631,
         "license_plate": "ARC323",
         "longitude": -73.73650418208022,
-        "status": "ACTIVA",
+        "is_active": False,
         "zone": "Bogota"
     }
 ]
@@ -51,7 +51,7 @@ def add_ambulance(ambulance_data):
         "license_plate": ambulance_data['license_plate'],
         "zone": ambulance_data['zone'],
         "id": str(uuid4()),
-        "status": ambulance_data['status'],
+        "is_active": ambulance_data['is_active'],
         "latitude": ambulance_data['latitude'],
         "longitude": ambulance_data['longitude']
     }
@@ -62,7 +62,7 @@ def list_ambulances():
     """
     Returns a list with all active ambulances
     """
-    active_ambulances = filter(lambda ambulance: ambulance["status"] == "ACTIVA", ambulances)
+    active_ambulances = filter(lambda ambulance: ambulance["is_active"], ambulances)
     return copy.deepcopy(list(active_ambulances))
 
 def get_near_ambulances(latitude, longitude):

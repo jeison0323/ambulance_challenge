@@ -14,9 +14,8 @@ ambulance_schema = {
             "type":"string",
             "minLength": 3
         },
-        "status" :{
-            "type":"string",
-            "pattern":"^(ACTIVA)$|^(INACTIVA)$"
+        "is_active" :{
+            "type":"boolean"
         },
         "latitude": {"type":"number"},
         "longitude": {"type":"number"}
@@ -24,7 +23,7 @@ ambulance_schema = {
     "required":[
         "license_plate",
         "zone",
-        "status",
+        "is_active",
         "latitude",
         "longitude"
     ]
