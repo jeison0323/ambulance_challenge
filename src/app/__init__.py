@@ -1,8 +1,9 @@
 """
 Init flask module
 """
+from handler.error_handler import handle_exceptions
+from werkzeug.exceptions import HTTPException
 from flask import Flask
-from handler.error_handler import errors
 from ambulance.routes import ambulance
 
 def create_app():
@@ -14,6 +15,6 @@ def create_app():
     app = Flask(__name__)
 
     app.register_blueprint(ambulance)
-    app.register_blueprint(errors)
+    app.register_error_handler(HTTPException,handle_exceptions)
 
     return app

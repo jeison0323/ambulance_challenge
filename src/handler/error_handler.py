@@ -1,34 +1,33 @@
 """
 Module for error handling
 """
-from flask import Blueprint, json
+from jsonschema.exceptions import ValidationError
+from werkzeug.exceptions import HTTPException
+from flask import jsonify
 
-errors = Blueprint('errors', __name__)
 
-@errors.app_errorhandler(400)
-def bad_request_handler(error):
+def handle_exceptions(exception: Exception):
     """
-    Error handling for 400 http exceptions
+    Handle the exceptions
     """
-    response = error.get_response()
-    response.data = json.dumps({
-        "code": str(error.code),
-        "name": str(error.name),
-        "description": str(error.description),
-    })
-    response.content_type = "application/json"
-    return response
-
-@errors.app_errorhandler(404)
-def not_found_handler(error):
-    """
-    Error handling for 404 http exceptions
-    """
-    response = error.get_response()
-    response.data = json.dumps({
-        "code": str(error.code),
-        "name": str(error.name),
-        "description": str(error.description),
-    })
-    response.content_type = "application/json"
-    return response
+    result_message = None
+    code = None
+    name = None
+    if isinstance(exception, HTTPException):
+        if isinstance(exception.description, ValidationError):
+            result_message = exception.description.message
+        else:
+            result_message = exception.description
+        code = exception.code
+        name = exception.name
+    else:
+        result_message = f'internal server error: { str(exception) }'
+        code = 500
+    response_data = {
+        "message": result_message,
+        "code": code,
+        "name": name
+    }
+    result = jsonify(response_data)
+    result.status = code
+    return result
