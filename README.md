@@ -1,26 +1,45 @@
 # Reto ambulancias
 
-A continuación se describen las instrucciones y la estructura definida para la ejecución de la API.
+A continuación se describe la estructura e instrucciones para la ejecución de la API.
+
+---
+***Importante: Leer las notas al final del documento***
+
+---
 
 ## Postman
 Descargar [Postman](https://www.postman.com/downloads/). 
 
-## Importar collection 
+## Importar colección 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d5f2d22ffede776c3167?action=collection%2Fimport) 
 
+---
+# Definición de endpoints
 
+## get_token [GET]:
 
-## Crear ambulancia [POST]:
+1. Entrada (Query parameters):
+    - user (string)
+    - password (string)
+2. Respuesta:
+    - Exito:
+        - Codigo 200
+        - token: token generado
+    - Error:
+        -  code: Código de error
+        -  description: Descrición del error
+        -  name: Nombre del error
 
-- Campos definidos (Body de la petición):
+## create_ambulance [POST]:
+
+1. Entrada (Body de la petición):
     - license_plate (String de máximo 6 caracteres)
     - zone (String)
     - id (Autogenerado)
     - status (String: ACTIVA ó INACTIVA)
     - latitude (Numero, permite decimales)
     - longitude (Numero, permite decimales)
-- Al ser el ID autogenerado, se permite la creación de una ambulancia con la misma placa, ya que esta no es única
-- Respuestas:
+2. Respuestas:
     - Exito: 
         - Codigo 201
         - message: Mensaje de confirmación.
@@ -28,18 +47,19 @@ Descargar [Postman](https://www.postman.com/downloads/).
         -  code: Código de error
         -  description: Descrición del error
         -  name: Nombre del error
+3. Al ser el ID autogenerado, se permite la creación de una ambulancia con la misma placa, ya que esta no es única
 
-## Obtener ambulancias activas [GET]:
-- Respuestas:
+## get_ambulances [GET]:
+1. Respuestas:
     - Exito:
         - Codigo 200
         - Lista con las ambulancias activas
 
-## Obtener ambulancias cercanas [GET]:
-- Campos definidos (Body de la petición):
+## nearby_ambulances [GET]:
+1. Campos definidos (Query parameters):
     - latitude (Numero, permite decimales)
     - longitude (Numero, permite decimales)
-- Respuestas:
+2. Respuestas:
     - Exito: 
         - Codigo 200
         - Lista con las ambulancias activas ordenadas desde la más cercana hasta la más lejana.
@@ -47,7 +67,9 @@ Descargar [Postman](https://www.postman.com/downloads/).
         -  code: Código de error
         -  description: Descrición del error
         -  name: Nombre del error
-## Instalación y ejecución
+
+---
+# Instalación y ejecución
 
 Se requiere [Python 3.11](https://www.python.org) para ejecutar.
 Y se recomienda ejecutar dentro de un entorno virtual
@@ -87,5 +109,9 @@ Ejecutar con Python el archivo main.py
 ```sh
 py main.py
 ```
+---
+# Notas
 
-El proyecto ejecutará en localhost
+1. Se creo un diccionario local con información de algunas ambulancias
+2. El usuario y contraseña para la generación de token es "test"
+3. Validar las variables de la colección de Postman en caso de que el programa se ejecute en un puerto diferente al parametrizado.

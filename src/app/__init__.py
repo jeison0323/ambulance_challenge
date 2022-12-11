@@ -5,6 +5,7 @@ from handler.error_handler import handle_exceptions
 from werkzeug.exceptions import HTTPException
 from flask import Flask
 from ambulance.routes import ambulance
+from security.routes import security
 
 def create_app():
     """Create the app
@@ -15,6 +16,7 @@ def create_app():
     app = Flask(__name__)
 
     app.register_blueprint(ambulance)
+    app.register_blueprint(security)
     app.register_error_handler(HTTPException,handle_exceptions)
 
     return app

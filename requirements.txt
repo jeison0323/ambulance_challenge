@@ -1,3 +1,4 @@
 flask
 flask-expects-json
 pyjwt
+python-dotenv
