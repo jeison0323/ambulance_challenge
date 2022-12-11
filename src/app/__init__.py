@@ -15,5 +15,5 @@ def create_app():
 
     app.register_blueprint(ambulance)
     app.register_blueprint(errors)
-    
+
     return app
