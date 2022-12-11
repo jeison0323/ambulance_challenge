@@ -36,7 +36,7 @@ Descargar [Postman](https://www.postman.com/downloads/).
     - license_plate (String de máximo 6 caracteres)
     - zone (String)
     - id (Autogenerado)
-    - status (String: ACTIVA ó INACTIVA)
+    - is_active (Boolean)
     - latitude (Numero, permite decimales)
     - longitude (Numero, permite decimales)
 2. Respuestas:
