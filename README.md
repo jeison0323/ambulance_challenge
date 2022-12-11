@@ -115,3 +115,4 @@ py main.py
 1. Se creo un diccionario local con información de algunas ambulancias
 2. El usuario y contraseña para la generación de token es "test"
 3. Validar las variables de la colección de Postman en caso de que el programa se ejecute en un puerto diferente al parametrizado.
+4. Antes de importar la colección de Postman, limpiar el caché del programa/navegador (Help>Clear Cache and Reload)
