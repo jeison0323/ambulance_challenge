@@ -11,7 +11,7 @@ A continuación se describe la estructura e instrucciones para la ejecución de 
 Descargar [Postman](https://www.postman.com/downloads/). 
 
 ## Importar colección 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://api.postman.com/collections/24866050-7e9a596b-f7ed-4fb0-a492-be69d1b564a9?access_key=PMAT-01GKZD0N6Q9Z0C7JZSATJAXB9H) 
+**Link de la colección:** https://api.postman.com/collections/24866050-7e9a596b-f7ed-4fb0-a492-be69d1b564a9?access_key=PMAT-01GKZD0N6Q9Z0C7JZSATJAXB9H
 
 ---
 # Definición de endpoints
