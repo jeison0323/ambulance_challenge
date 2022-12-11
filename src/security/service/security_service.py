@@ -44,8 +44,8 @@ def generate_token(user):
     """
     payload = {
         "user": user,
-        "expiration": str(datetime.utcnow() +
-            timedelta(seconds=240))
+        "exp": datetime.utcnow() +
+            timedelta(seconds=120)
     }
     token = jwt.encode(payload=payload, key=getenv("SECRET_KEY"))
     return jsonify({"token": token})
