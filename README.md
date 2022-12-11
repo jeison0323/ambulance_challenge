@@ -16,9 +16,9 @@ Descargar [Postman](https://www.postman.com/downloads/).
 ---
 # Definición de endpoints
 
-## get_token [GET]:
+## get_token [POST]:
 
-1. Entrada (Query parameters):
+1. Entrada (Body de la petición):
     - user (string)
     - password (string)
 2. Respuesta:
